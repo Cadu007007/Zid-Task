@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Product;
 use PhpParser\Node\Attribute;
 use App\Models\MerchantSetting;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -60,5 +61,10 @@ class User extends Authenticatable
     public function merchantSetting() : HasOne
     {
         return $this->hasOne(MerchantSetting::class,'merchant_id','id');
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class,'merchant_id','id');
     }
 }
