@@ -3,9 +3,11 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
-class SetLocal
+class ConsumerMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,8 +18,12 @@ class SetLocal
      */
     public function handle(Request $request, Closure $next)
     {
-   
-        app()->setLocale($request->server('HTTP_ACCEPT_LANGUAGE')?? 'en');
-        return $next($request);
+        if(auth('sanctum')->check() && auth('sanctum')->user()->role == User::CONSUMER)
+        {
+            return $next($request);
+
+        }
+        throw new HttpResponseException(response()->json(['success'=>false,'errors'=>['permission'=>'You Don\'t Have Permission ']], 403)); 
+
     }
 }

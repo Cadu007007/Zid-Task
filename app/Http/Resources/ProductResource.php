@@ -22,6 +22,5 @@ class ProductResource extends JsonResource
             'vat_percentage'=>$this->vat_percentage,
             'price_after_vat'=>$this->price_after_vat,
         ];
-        // return parent::toArray($request);
     }
 }

@@ -1,0 +1,522 @@
+{
+	"info": {
+		"_postman_id": "8738abc3-bfb5-4690-bb6e-522d08431991",
+		"name": "Zid",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20924492"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "email@email.comm",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "name",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "consumer",
+							"description": "consumer or merchant",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"description": "min  6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "email@email.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"description": "min  6",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}//api/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"",
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "6|TgjpkzqnqXUe0s8iwZT6RaTT50JQ0JBl3NOx0N89",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Merchant Setting",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7|gGdhYwCfo0Akx3lxnpihjpHyIxsKA81UxiB1PPAD",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "store_name",
+							"value": "test",
+							"description": "unique // not mendatory",
+							"type": "text"
+						},
+						{
+							"key": "vat_settings",
+							"value": "included",
+							"description": "included or excluded // not mendatory // default is excluded",
+							"type": "text"
+						},
+						{
+							"key": "shipping_cost",
+							"value": "38",
+							"description": "not mendatory // default is 0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/merchant/store-update-setting",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"merchant",
+						"store-update-setting"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "8|KwMfLzi9UizHTr0Cew7CmRxwSMraYovqIOXL6nzX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "ar",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "store_name",
+							"value": "test",
+							"description": "unique // not mendatory",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "vat_settings",
+							"value": "included",
+							"description": "included or excluded // not mendatory // default is excluded",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "shipping_cost",
+							"value": "38",
+							"description": "not mendatory // default is 0",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "vat_percentage",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "name_en",
+							"value": "name en33",
+							"type": "text"
+						},
+						{
+							"key": "name_ar",
+							"value": "name ar33",
+							"type": "text"
+						},
+						{
+							"key": "description_en",
+							"value": "desciption en",
+							"type": "text"
+						},
+						{
+							"key": "description_ar",
+							"value": "description ar",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "15",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/merchant/products",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"merchant",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product To Cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "8|KwMfLzi9UizHTr0Cew7CmRxwSMraYovqIOXL6nzX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "ar",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/api/consumer/add-product-to-cart",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"consumer",
+						"add-product-to-cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Products For Current Merchant",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "8|KwMfLzi9UizHTr0Cew7CmRxwSMraYovqIOXL6nzX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "ar",
+						"type": "text",
+						"description": "the default is en",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/merchant/products",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"merchant",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cart Total",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "8|KwMfLzi9UizHTr0Cew7CmRxwSMraYovqIOXL6nzX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "ar",
+						"type": "text",
+						"description": "the default is en",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/consumer/cart-total",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"consumer",
+						"cart-total"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Products For All Merchants",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "8|KwMfLzi9UizHTr0Cew7CmRxwSMraYovqIOXL6nzX",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "ar",
+						"type": "text",
+						"description": "the default is en",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/products",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		}
+	]
+}

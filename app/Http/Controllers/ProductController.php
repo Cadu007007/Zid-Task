@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductStoreRequest;
 use App\Services\MerchantProductService;
+use App\Services\ProductService;
 
 class ProductController extends Controller
 {
@@ -12,7 +13,12 @@ class ProductController extends Controller
     {
         $this->merchantProductService = $merchantProductService;
     }
-    public function index()
+    public function index(ProductService $productService)
+    {
+     
+        return $this->JsonResponse(true,$productService->getAll(),'',200);
+    }
+    public function merchantProducts()
     {
         $response = $this->merchantProductService->getAllProducts();
         return $this->JsonResponse(true,$response,'',200);
